@@ -1,0 +1,249 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Space+Mono:wght@700&display=swap");
+*,
+::before,
+::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	list-style-type: none;
+	text-decoration: none;
+}
+/* ROOT STYLE PRESETS */
+:root {
+	--main-color: hsl(0, 0%, 9%);
+	--gradient-text: linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
+	--webk-gradient-text: -webkit-linear-gradient(
+		to right,
+		#12c2e9,
+		#c471ed,
+		#f64f59
+	);
+	--fallb-gradient-text: hsl(191, 86%, 49%);
+	--footer-btn-clr: hsl(0, 0%, 85%);
+	/* FONTS */
+	--main-font: "Montserrat", sans-serif;
+	--logo-font: "Space Mono", monospace;
+}
+
+/* CUSTOM SCROLL BAR */
+::-webkit-scrollbar {
+    width: 0.8rem;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsla(0, 0%, 68%, 0.438);
+    margin-block: 0.5em;
+    border-radius: 100vw;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #12c2e9, #c471ed, #f64f59);
+    border-radius: 100vw;
+  }
+  /* CUSTOM SCROLLBAR END */
+
+/* ============== HEADER ============== */
+.navbar {
+	height: 10vh;
+	display: flex;
+	align-items: center;
+}
+
+.navbar .nav-space {
+	width: 90%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.navbar .nav-space .logo {
+	text-transform: uppercase;
+	font-size: 2rem;
+	letter-spacing: 2px;
+	font-family: var(--logo-font);
+}
+
+ul {
+	display: flex;
+	font-family: var(--main-font);
+}
+
+ul .link {
+	margin: 0 1rem;
+	text-transform: uppercase;
+	color: var(--main-color);
+	font-size: clamp(1rem, 8vw - 2rem, 1rem);
+}
+
+ul .link:hover {
+	border-bottom: 2px solid hsl(0, 0%, 9%);
+}
+
+.fa-user {
+	margin-right: 2rem;
+	cursor: pointer;
+}
+
+.fa-user,
+.fa-shopping-cart {
+	font-size: 1.3rem;
+}
+
+.nav-icons {
+	display: flex;
+	align-items: center;
+}
+
+.cart-btn {
+	position: relative;
+	cursor: pointer;
+}
+
+.cart-items {
+	position: absolute;
+	top: -7px;
+	right: -10px;
+	border-radius: 30%;
+	padding: 0 5px;
+	background-color: hsl(0, 73%, 49%);
+	color: white;
+}
+
+.banner {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: url(/bgyes.jpg) no-repeat center;
+	background-position: cover;
+	background-size: cover;
+	width: 100%;
+	height: 90vh;
+	position: relative;
+}
+
+.banner-overlay {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	background: hsla(0, 0%, 0%, 0.623);
+}
+
+.banner h1 {
+	text-transform: uppercase;
+	font-family: var(--main-font);
+	font-size: clamp(2rem, 8vw - 2rem, 4rem);
+	text-align: center;
+	color: white;
+	margin-bottom: 2rem;
+}
+
+.banner h1 span {
+	background: #12c2e9; /* fallback for old browsers */
+	background: -webkit-linear-gradient(
+		to right,
+		#f64f59,
+		#c471ed,
+		#12c2e9
+	); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(
+		to right,
+		#f64f59,
+		#c471ed,
+		#12c2e9
+	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.btn-shop {
+	border: none;
+	outline: none;
+	background-color: var(--main-color);
+	padding: 1rem 2.5rem;
+	text-transform: uppercase;
+	color: white;
+	cursor: pointer;
+	letter-spacing: 2px;
+}
+
+.btn-shop:hover {
+	transform: translateY(-10px);
+	transition: transform 100ms ease-in;
+}
+/* ============== END OF HEADER ============== */
+
+/* ============== MAIN ============== */
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 4rem 2rem;
+}
+
+main .img-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.img-container {
+    height: 450px;
+}
+
+main h2 {
+    font-size: 2rem;
+    font-family: var(--main-font);
+    background: #FC466B;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #3F5EFB, #FC466B);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #3F5EFB, #FC466B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+/* ============== END OF MAIN ============== */
+
+/* ============== FOOTER ============== */
+footer {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--main-color);
+    padding: 6rem 3rem;
+    
+}
+
+footer h1 {
+   
+    font-family: var(--logo-font);
+    font-size: 4rem;
+    color: hsla(0, 0%, 100%, 0.616);
+    transform: rotate(-30deg);
+    text-transform: uppercase;
+}
+footer h2 {
+    text-transform: capitalize;
+    font-family: var(--main-font);
+    color: rgba(255, 255, 255, 0.76);
+}
+
+footer p {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 0.8rem;
+    color: white;
+    font-family: var(--main-font);
+}
+/* ============== END OF FOOTER ============== */
+
