@@ -20,6 +20,7 @@
 	);
 	--fallb-gradient-text: hsl(191, 86%, 49%);
 	--footer-btn-clr: hsl(0, 0%, 85%);
+	--secondary-color: hsl(0, 78%, 59%);
 	/* FONTS */
 	--main-font: "Montserrat", sans-serif;
 	--logo-font: "Space Mono", monospace;
@@ -247,3 +248,53 @@ footer p {
 }
 /* ============== END OF FOOTER ============== */
 
+/* ============== MAIN ============== */
+.products-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+	width: 90%;
+	margin: 0 auto;
+	grid-column-gap: 1.5rem;
+	grid-row-gap: 2rem;
+	margin-top: 4rem;
+}
+
+.product-img {
+	width: 100%;
+  }
+
+.img-container  {
+    margin-bottom: .5rem;
+	position: relative;
+	overflow: hidden;
+}
+
+.product h3 {
+    margin-bottom: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+.caption {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price {
+    font-size: 1.5rem;
+}
+.atc {
+    border: none;
+    background-color: var(--secondary-color);
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    color: #fff;
+	text-transform: uppercase;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 3rem;
+}
+/* ============== END OF MAIN ============== */
