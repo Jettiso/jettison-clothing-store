@@ -145,8 +145,54 @@ class UI {
         cart.forEach(item => this.addCartItem(item));
     }
     setupAPP() {
-        cart = 
+        cart = Storage.getCart();
+        this.setCartValues(cart);
+        this.populateCart(cart);
+        cartBtn.addEventListener('click', this.showCart);
+        closeCartBtn.addEventListener('click', this.hideCart);
     }
+
+    // CART FUNCTIONALITY
+    cartLogic() {
+        clearCartBtn.addEventListener('click', () => {
+            this.clearCart();
+        })
+
+        cartContent.addEventListener('click', (e) => {
+            if(e.target.classList.contains('remove-item')) {
+                let removeItem = e.target;
+                let id = removeItem.dataset.id;
+                cartContent.removeChild(removeItem.parentElement.parentElement);
+                this.removeItem(id);
+            }
+            else if (e.target.classList.contains('fa-chevron-up')) {
+                let addAmount = e.target;
+                let id = addAmount.dataset.id;
+                let tempItem = cart.find(item => item.id == id);
+                tempItem.amount = tempItem.amount + 1;
+                Storage.saveCart(cart);
+                this.setCartValues(cart);
+                addAmount.nextElementSibling.innerText = tempItem.amount;
+                tempItem.amount++;
+            }
+            else if (e.target.classList.contains('fa-chevron-down')) {
+                let lowerAmount = e.target;
+                let id = lowerAmount.dataset.id;
+                let tempItem = cart.find( item => item.id == id);
+                tempItem.amount = tempItem.amount - 1;
+                tempItem.amount--;
+                if(tempItem.amount > 0) {
+                    Storage.saveCart(cart);
+                    this.setCartValues(cart);
+                    lowerAmount.previousElementSibling.innerHTML = tempitem.amount;
+                }  
+                else {
+                    cartContent.
+                }
+            }
+        })
+    }
+
 }
 
 class Storage {
