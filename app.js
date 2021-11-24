@@ -78,7 +78,7 @@ class UI {
 				button.addEventListener('click', (e) => {
 					e.target.innerText = "In Cart";
 					e.target.disabled = true;
-									//Spread Op									// number of items in cart
+									//Spread Op				// number of items in cart
 					let cartItem = {...Storage.getProduct(id), amount: 1}
 					console.log(cartItem);
 					
