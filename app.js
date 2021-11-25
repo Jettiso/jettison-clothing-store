@@ -10,6 +10,7 @@ const cartItems = document.querySelector('.cart-items');
 const cartTotal = document.querySelector('.cart-total');
 const cartContent = document.querySelector('.cart-content');
 const productsDOM = document.querySelector('.products-container');
+const filterBtns = document.querySelectorAll('.category-btn');
 
 // Cart
 let cart = []
@@ -30,9 +31,10 @@ class Products {
 			const image = product.image;
 			const id = product.id;
 			const price = product.price;
+			const category = product.category;
 			
 
-			return {name, price, image, id}
+			return {name, price, image, id, category}
 		})
 		return products;
 		} catch (error) {
@@ -45,10 +47,8 @@ class Products {
 
 class UI {
 	displayProducts(products) {
-		let result = "";
-
-		products.forEach(product => {
-			result += `<div class="product">
+		let disMenuItems = products.map((product) => {
+			return `<div class="product">
             <div class="img-container">
                 <img src=${product.image} alt="" class="product-img">
             </div>
@@ -58,9 +58,30 @@ class UI {
                 <button class="atc" data-id=${product.id}>add to cart</button>
             </div>
         </div>`;
-			
-		});
-		productsDOM.innerHTML = result;
+		})
+		disMenuItems = disMenuItems.join("");
+		productsDOM.innerHTML = disMenuItems;
+	}
+	filterBtns(params) {
+		filterBtns.forEach((btns) => {
+			btns.addEventListener('click', (e) => {
+				let category = e.currentTarget.dataset.id;
+				let products = params.filter((item) => {
+					if(item.category == category) {
+						return item;
+					}
+				});
+				if (category === "all") {
+					this.displayProducts(params);
+					this.getAtcBtns();
+					this.clear();
+				  } else {
+					this.displayProducts(products);
+					this.getAtcBtns();
+					this.clear();
+				  }
+			})
+		})
 	}
 	getAtcBtns () {
 		const buttons = [...document.querySelectorAll('.atc')];
@@ -68,7 +89,7 @@ class UI {
 
 		buttons.forEach(button => {
 			let id = button.dataset.id;
-			let inCart = cart.find(item => item.id === id);
+			let inCart = cart.find(item => item.id == id);
 			
 			if(inCart) {
 				button.innerText = "In Cart";
@@ -95,6 +116,11 @@ class UI {
 		})
 
 		
+	}
+	clear() {
+		clearCartBtn.addEventListener('click', e => {
+			this.clearCart(e);
+		});
 	}
 	setCartValues(cart) {
 		let tempTotal = 0;
@@ -148,7 +174,7 @@ class UI {
 	cartLogic() {
 		// CLEAR CARTBTN
 		clearCartBtn.addEventListener('click', e => {
-			this.clearCart();
+			this.clearCart(e);
 		});
 
 		cartContent.addEventListener('click', event => {
@@ -238,10 +264,11 @@ document.addEventListener('DOMContentLoaded', () => {
 	
 	products.getProducts().then( (data) => {
 		// Render the products 
+		console.log(data);
 		ui.displayProducts(data);
 		// save to local storage
 		Storage.saveProducts(data);
-		
+		ui.filterBtns(data);
 	}).then( () => {
 		ui.getAtcBtns();
 		ui.cartLogic();

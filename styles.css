@@ -7,7 +7,9 @@
 	box-sizing: border-box;
 	list-style-type: none;
 	text-decoration: none;
+	
 }
+
 /* ROOT STYLE PRESETS */
 :root {
 	--main-color: hsl(0, 0%, 9%);
@@ -48,6 +50,9 @@
 	align-items: center;
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 	position: sticky;
+	top:0;
+	z-index: 1;
+	background-color: #f2f2f2;
 }
 
 .navbar .nav-space {
@@ -337,7 +342,7 @@ h5,
 .products-container {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-	grid-template-rows: repeat(5, 1fr);
+	
 	grid-column: 3 / span 8;
 	width: 95%;
 	grid-column-gap: 1.5rem;
@@ -365,7 +370,7 @@ h5,
 	width: 100%;
 	height: 100%;
 	overflow: scroll;
-	z-index: 3;
+	z-index: 999;
 	background: rgb(219, 219, 219);
 	padding: 1.5rem;
 	transition: all 300ms ease;
