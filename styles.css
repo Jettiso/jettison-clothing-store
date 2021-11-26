@@ -76,7 +76,7 @@
 }
 
 .nav-links .link {
-	margin: 0 1rem;
+	margin: 3rem;
 	text-transform: uppercase;
 	color: var(--main-color);
 	font-size: clamp(1rem, 8vw - 2rem, 1rem);
@@ -481,6 +481,10 @@ h5,
 	}
 	.nav-btn {
 		font-size: 1rem;
+		visibility: hidden;
+	}
+	.nav-links .link {
+		margin: 0 1rem;
 	}
 }
 
