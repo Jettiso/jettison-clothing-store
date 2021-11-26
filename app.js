@@ -11,6 +11,11 @@ const cartTotal = document.querySelector('.cart-total');
 const cartContent = document.querySelector('.cart-content');
 const productsDOM = document.querySelector('.products-container');
 const filterBtns = document.querySelectorAll('.category-btn');
+const categoryShow = document.querySelector('.show-category-btn');
+const categoryClose = document.querySelector('.category-close');
+const categoryDOM = document.querySelector('.category-container');
+const navBtn = document.querySelector('.nav-btn');
+const mobileNav = document.querySelector('.mobile-nav');
 
 // Cart
 let cart = []
@@ -75,7 +80,8 @@ class UI {
 					this.displayProducts(params);
 					this.getAtcBtns();
 					this.clear();
-				  } else {
+				  } 
+				  else {
 					this.displayProducts(products);
 					this.getAtcBtns();
 					this.clear();
@@ -101,7 +107,7 @@ class UI {
 					e.target.disabled = true;
 									//Spread Op				// number of items in cart
 					let cartItem = {...Storage.getProduct(id), amount: 1}
-					console.log(cartItem);
+				
 					
 					cart = [...cart, cartItem];
 					
@@ -160,8 +166,20 @@ class UI {
         this.populateCart(cart);
         cartBtn.addEventListener('click', this.showCart);
         closeCartBtn.addEventListener('click', this.hideCart); 
+		categoryShow.addEventListener('click', this.showCategory);
+		categoryClose.addEventListener('click', this.closeCategory);
+		navBtn.addEventListener('click', this.navToggle);
     }
-
+	navToggle() {
+		mobileNav.classList.toggle('showNav');
+	}
+	
+	closeCategory() {
+		categoryDOM.classList.remove('showCategory');
+	}
+	showCategory() {
+		categoryDOM.classList.add('showCategory');
+	}
 	populateCart(cart){
         cart.forEach(item => this.addCartItem(item));
     }
@@ -264,7 +282,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	
 	products.getProducts().then( (data) => {
 		// Render the products 
-		console.log(data);
 		ui.displayProducts(data);
 		// save to local storage
 		Storage.saveProducts(data);
