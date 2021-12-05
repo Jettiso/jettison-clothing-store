@@ -212,7 +212,7 @@ a[href="form.html"] {
 .btn-shop {
 	border: none;
 	outline: none;
-	background-color: var(--main-color);
+	background-color: var(--secondary-color);
 	padding: 1rem 2.5rem;
 	text-transform: uppercase;
 	color: white;
