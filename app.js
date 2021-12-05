@@ -28,7 +28,6 @@ class Products {
 		try {
 		const result = await fetch("products.json");
 		const data = await result.json();
-
 		let products = data.items;
 
 		products = products.map((product) => {
@@ -89,6 +88,7 @@ class UI {
 			})
 		})
 	}
+	
 	getAtcBtns () {
 		const buttons = [...document.querySelectorAll('.atc')];
 		buttonsDOM = buttons;
@@ -273,6 +273,8 @@ class Storage {
 	}
 }
 
+
+
 document.addEventListener('DOMContentLoaded', () => {
 	const products = new Products();
 	const ui = new UI();
@@ -293,3 +295,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	
 });
+
+function updateProgressBar() {
+		const {scrollTop, scrollHeight} = document.documentElement;
+		const scrollPercent = `${(scrollTop / (scrollHeight - window.innerHeight)) * 100}%`;
+		document.querySelector('#progress-bar').style.setProperty('--progress', scrollPercent);
+	}
+
+document.addEventListener('scroll', updateProgressBar);
