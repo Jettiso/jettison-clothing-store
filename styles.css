@@ -180,7 +180,7 @@ a[href="form.html"] {
 	right: 0;
 	width: 100%;
 	height: 100%;
-	background: hsla(0, 0%, 0%, 0.623);
+	background: hsla(0, 0%, 0%, 0.822);
 }
 
 .banner h1 {
@@ -691,6 +691,8 @@ h5,
 	width: 100%;
 	font-family: var(--main-font);
 	cursor: pointer;
+	letter-spacing: 1.5px;
+	text-transform: uppercase;
 }
 
 
