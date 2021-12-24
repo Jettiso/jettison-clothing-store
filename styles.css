@@ -10,6 +10,10 @@
 	
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 /* ROOT STYLE PRESETS */
 :root {
 	--main-color: hsl(0, 0%, 9%);
@@ -383,6 +387,8 @@ h5,
 	background-color: #f2f2f2;
 	transform: translateX(-150%);
 	transition: all 300ms ease;
+	overflow: hidden;
+	
 }
 
 .show-category-btn {
