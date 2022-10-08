@@ -53,7 +53,7 @@
         "category": "ts",
         "name": "Black Shirt",
         "price": 12.99,
-        "image": "tshirts/dexcneck.png",
+        "image": "tshirts/dexcneck.jpg",
         "id": 8 
     },
     {   
@@ -67,35 +67,35 @@
         "category": "jp",
         "name": "Black Pants",
         "price": 18.99,
-        "image": "jp/blackpants.png",
+        "image": "jp/blackpants.jpg",
         "id": 10
     },
     {   
         "category": "jp",
         "name": "Black Joggers",
         "price": 13.99,
-        "image": "jp/sflaneljogger.png",
+        "image": "jp/sflaneljogger.jpg",
         "id": 11
     },
     {   
         "category": "jp",
         "name": "Grey Joggers",
         "price": 13.99,
-        "image": "jp/joggerpants.png",
+        "image": "jp/joggerpants.jpg",
         "id": 12
     },
     {   
         "category": "jp",
         "name": "Dark Grey Joggers",
         "price": 13.99,
-        "image": "jp/crelaxedjogger.png",
+        "image": "jp/crelaxedjogger.jpg",
         "id": 13 
     },
     {   
         "category": "jp",
         "name": "Grey Sweat Pants",
         "price": 12.99,
-        "image": "jp/sweatpants.png",
+        "image": "jp/sweatpants.jpg",
         "id": 14
     },
     {   
