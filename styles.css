@@ -191,7 +191,7 @@ a[href="form.html"] {
 	font-size: clamp(2rem, 8vw - 2rem, 4rem);
 	text-align: center;
 	color: white;
-	margin-bottom: 2rem;
+	margin-bottom: 3rem;
 }
 
 .banner h1 span {
@@ -220,11 +220,7 @@ a[href="form.html"] {
 	color: white;
 	cursor: pointer;
 	letter-spacing: 2px;
-}
-
-.btn-shop:hover {
-	transform: translateY(-10px);
-	transition: transform 100ms ease-in;
+	border-radius: 5px;
 }
 
 #progress-bar {
