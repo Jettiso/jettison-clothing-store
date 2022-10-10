@@ -616,6 +616,55 @@ h5,
 
 /* ============== END OF CART ============== */
 
+/* ============== START OF POPUP PURCHASE ============== */
+
+.popup-overlay {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	transition: var(--mainTransition);
+	background: rgba(0, 0, 0, 0.6);
+	z-index: 3;
+	visibility: hidden;
+}
+
+.popup-purchase {
+	max-width: 400px;
+	border-radius: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	background-color: #f2f2f2;
+	padding: 2rem;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.popup-purchase h2 {
+	font-size: 2rem;
+	text-align: center;
+	margin-bottom: 1.5rem;
+}
+
+.popup-purchase button {
+	border: none;
+	outline: none;
+	padding: 1rem 3rem;
+	background-color: var(--secondary-color);
+	cursor: pointer;
+	color: #f2f2f2;
+	border-radius: 10px;
+}
+
+/* ============== END OF POPUP PURCHASE ============== */
+
+
+
 /* ============== FORM ============== */
 
 .form-container {
