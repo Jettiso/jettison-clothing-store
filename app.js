@@ -19,6 +19,7 @@ const popupOverlay = document.querySelector(".popup-overlay");
 const okBtn = document.querySelector("#ok-btn");
 const noCartItem = document.querySelector(".noCart-item");
 
+
 // Cart
 let cart = [];
 // buttons
@@ -173,7 +174,7 @@ class UI {
 					this.hideCart();
 					this.buyItems();
 				}
-		
+			
 			
 		});
 		
@@ -302,6 +303,7 @@ class Storage {
 document.addEventListener("DOMContentLoaded", () => {
     const products = new Products();
     const ui = new UI();
+	
 
     // SETUP APP (close, open the cart, display the data saved to local storage)
     ui.setupAPP();
