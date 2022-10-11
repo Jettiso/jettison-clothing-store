@@ -231,7 +231,7 @@ class UI {
                 let tempItem = cart.find((item) => item.id == id);
                 tempItem.amount++;
                 Storage.saveCart(cart);
-                this.setCartValues(cart);
+                this.setCartValues(csetCartValuesart);
                 addAmount.nextElementSibling.innerText = tempItem.amount;
             } else if (event.target.classList.contains("fa-chevron-down")) {
                 let lowerAmount = event.target;
