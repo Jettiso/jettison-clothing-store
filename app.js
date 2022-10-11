@@ -215,6 +215,7 @@ class UI {
         // CLEAR CARTBTN
         clearCartBtn.addEventListener("click", (e) => {
             this.clearCart(e);
+			location.reload();
         });
 
 		
