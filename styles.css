@@ -601,6 +601,18 @@ h5,
 	text-transform: uppercase;
 	margin-right: 1.5rem;
 }
+
+.clear-cart {
+	border: none;
+	outline: none;
+	color:hsl(0, 0%, 20%);
+	background-color: transparent;
+	font-size: 1rem;
+	margin-right: 2rem;
+	cursor: pointer;
+	text-transform: uppercase;
+
+}
 /* ============== END OF CART ITEM ============== */
 /* ============== CART FOOTER ============== */
 .cart-footer {
