@@ -14,6 +14,10 @@ const categoryClose = document.querySelector(".category-close");
 const categoryDOM = document.querySelector(".category-container");
 const navBtn = document.querySelector(".nav-btn");
 const mobileNav = document.querySelector(".mobile-nav");
+const buyItems = document.querySelector(".buy-items");
+const popupOverlay = document.querySelector(".popup-overlay");
+const okBtn = document.querySelector("#ok-btn");
+const noCartItem = document.querySelector(".noCart-item");
 
 // Cart
 let cart = [];
@@ -109,6 +113,7 @@ class UI {
                     this.setCartValues(cart);
                     // DISPLAY CART ITEMS
                     this.addCartItem(cartItem);
+					noCartItem.classList.remove("transparentBcg");
                 });
             }
         });
@@ -159,6 +164,23 @@ class UI {
         categoryShow.addEventListener("click", this.showCategory);
         categoryClose.addEventListener("click", this.closeCategory);
         navBtn.addEventListener("click", this.navToggle);
+		buyItems.addEventListener("click", (e) => {
+				if (cartTotal.innerText == 0) {
+
+					noCartItem.classList.add("transparentBcg");
+				} else {
+						
+					this.hideCart();
+					this.buyItems();
+				}
+		
+			
+		});
+		
+
+		okBtn.addEventListener("click", (e) => {
+			this.hidePurchaseModal() ;
+		});
     }
     navToggle() {
         mobileNav.classList.toggle("showNav");
@@ -179,11 +201,23 @@ class UI {
         cartDOM.classList.remove("showCart");
     }
 
+	buyItems() {
+		popupOverlay.classList.add("transparentBcg");
+	}
+
+	hidePurchaseModal() {
+		popupOverlay.classList.remove("transparentBcg");
+	}
+
+	
+
     cartLogic() {
         // CLEAR CARTBTN
         clearCartBtn.addEventListener("click", (e) => {
             this.clearCart(e);
         });
+
+		
 
         cartContent.addEventListener("click", (event) => {
             if (event.target.classList.contains("remove-item")) {
@@ -197,7 +231,7 @@ class UI {
                 let tempItem = cart.find((item) => item.id == id);
                 tempItem.amount++;
                 Storage.saveCart(cart);
-                this.setCartValues(cart);
+                this.setCartValues(csetCartValuesart);
                 addAmount.nextElementSibling.innerText = tempItem.amount;
             } else if (event.target.classList.contains("fa-chevron-down")) {
                 let lowerAmount = event.target;
@@ -226,6 +260,7 @@ class UI {
             cartContent.removeChild(cartContent.children[0]);
         }
         this.hideCart();
+		
     }
 
     removeItem(id) {
