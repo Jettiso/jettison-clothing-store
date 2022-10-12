@@ -74,11 +74,13 @@ class UI {
                     if (item.category == category) {
                         return item;
                     }
+                    this.closeCategory();
                 });
                 if (category === "all") {
                     this.displayProducts(params);
                     this.getAtcBtns();
                     this.clear();
+                    this.closeCategory();
                 } else {
                     this.displayProducts(products);
                     this.getAtcBtns();
@@ -216,7 +218,7 @@ class UI {
         // CLEAR CARTBTN
         clearCartBtn.addEventListener("click", (e) => {
             this.clearCart(e);
-			location.reload();
+			location.reload(e);
         });
 
 		
